@@ -85,10 +85,9 @@ const bindTaskEvents = function (item) {
   item.querySelector('button.delete').onclick = deleteTask;
 };
 
-for (let i = 0; i < incompleteTaskHolder.children.length; i++) {
-  bindTaskEvents(incompleteTaskHolder.children[i]);
-}
+const bindAllTasks = function (list) {
+  for (const item of list.children) bindTaskEvents(item);
+};
 
-for (let i = 0; i < completedTasksHolder.children.length; i++) {
-  bindTaskEvents(completedTasksHolder.children[i]);
-}
+bindAllTasks(incompleteTaskHolder);
+bindAllTasks(completedTasksHolder);
